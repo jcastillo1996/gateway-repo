@@ -1,0 +1,17 @@
+server:
+  port: 8099
+  
+eureka:  client:    service-url:      defaultZone: http://localhost:8761/eureka/
+
+zuul:  host:    connect-timeout-millis: 100000
+    socket-timeout-millis: 100000
+  routes:    #uaa:
+    #  path: /uaa/**
+    #  sensitive-headers:    #  service-id: AUTH-SERVER
+    cli:
+      path: /micro-cli/**
+      sensitive-headers:      service-id: CLIENT-MICRO
+    acco:
+      path: /micro-acco
+      sensitive-headers:      service-id: micro-acco
+      
